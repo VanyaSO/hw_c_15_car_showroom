@@ -17,7 +17,6 @@ int getSearchIndex(T*& list, int size,
     // делаем поиск в списке
     searchIndex = search(list, size, searchValue, searchByValue);
 
-    cout << searchIndex << endl;
     return searchIndex;
 };
 //#endif

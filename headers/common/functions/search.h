@@ -1,7 +1,7 @@
 #ifndef SEARCH
 #define SEARCH
-template<typename T>
-int search(T* list, int sizeList, char* value, int (*searchByValue)(T*, int, char*))
+template<typename T, typename T2>
+int search(T* list, int sizeList, T2 value, int (*searchByValue)(T*, int, T2))
 {
     int left = 0;
     int right = sizeList - 1;

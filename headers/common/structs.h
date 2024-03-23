@@ -16,14 +16,19 @@ struct Employee
     char email[SIZE_STR];
 };
 
-struct Car
+struct CarData
 {
     char manufacturer[SIZE_STR];
-    int yearGraduation;
     char model[SIZE_STR];
+    char vinCode[SIZE_STR];
+};
+
+struct Car
+{
+    CarData carData;
+    int yearGraduation;
     double price;
     double potentialSalePrice;
-    char vinCode[SIZE_STR];
 };
 
 struct Date
@@ -36,9 +41,11 @@ struct Date
 struct Sale
 {
     EmployeeData empData;
-    Car car;
+    CarData carData;
     Date data;
     double realSalePrice;
+    double margin;
+    int id;
 };
 
 

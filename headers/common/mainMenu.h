@@ -11,6 +11,7 @@
 #include "headers/common/functions/deleteElement.h"
 #include "headers/employee/employeeMenu.h"
 #include "headers/car/carMenu.h"
+#include "headers/sale/saleMenu.h"
 #include "headers/reports/reportsMenu.h"
 
 
@@ -20,7 +21,7 @@ void printMainMenu()
     cout << "Главное меню"  << endl;
     cout << "1) Добавление/редактирование/удаление - сотрудника" << endl;
     cout << "2) Добавление/редактирование/удаление - автомобиля" << endl;
-    cout << "3) Добавление/редактирование/удаление - продажи" << endl;
+    cout << "3) Добавление/удаление - продажи" << endl;
     cout << "4) Отчеты" << endl;
     cout << "0) Звершить работу" << endl;
 }
@@ -58,7 +59,8 @@ void mainMenu()
                 carMenu(listCars, sizeListCars);
                 continue;
             case 3:
-                // для продажи
+                clearConsole();
+                saleMenu(listSales, sizeListSales);
                 continue;
             case 4:
                 clearConsole();

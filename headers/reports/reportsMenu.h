@@ -42,6 +42,8 @@ void reportsMenu()
                 printList(listCars, sizeListCars, ptrPrintCar);
                 continue;
             case 3:
+                clearConsole();
+                printList(listSales, sizeListSales, ptrPrintSale);
                 continue;
             case 0:
                 clearConsole();
