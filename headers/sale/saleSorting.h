@@ -3,7 +3,7 @@
 int sortBySaleNumber(Sale* list, int index)
 {
     int num1 = list[index].id;
-    int num2 = list[index-1].id;
+    int num2 = list[index+1].id;
 
     if (num1 < num2)
     {
