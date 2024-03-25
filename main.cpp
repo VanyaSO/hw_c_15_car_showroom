@@ -11,7 +11,7 @@ int main()
 {
     setlocale(LC_ALL,"Russian");
 
-    // загружаем списки при запуске програмы
+    // загружаем списки при запуске програмы в массивы
     readToFile(listEmployees, sizeListEmployees, "../files/empls.dat");
     readToFile(listCars, sizeListCars, "../files/cars.dat");
     readToFile(listSales, sizeListSales, "../files/sales.dat");
@@ -21,4 +21,8 @@ int main()
 
     cout << "-----Добро пожаловать в систему автомобильного салона-----" << endl;
     mainMenu();
+
+    delete[] listEmployees;
+    delete[] listCars;
+    delete[] listSales;
 }

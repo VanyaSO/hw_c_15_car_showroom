@@ -1,8 +1,8 @@
 #ifndef SALEMENU
 #define SALEMENU
-#include "headers/sale/sale.h"
-#include "headers/sale/saleSorting.h"
-#include "headers/sale/saleSearch.h"
+#include "sale.h"
+#include "saleSorting.h"
+#include "saleSearch.h"
 
 void printSaleMenu() {
     cout << "Меню для работы с даными продажами"  << endl;

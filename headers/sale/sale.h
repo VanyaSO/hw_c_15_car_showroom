@@ -1,6 +1,6 @@
 #ifndef SALE
 #define SALE
-#include "headers/common/lists.h"
+#include "../common/lists.h"
 
 Sale createSale()
 {
