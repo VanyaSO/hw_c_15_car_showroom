@@ -28,7 +28,7 @@ void saleMenu(Sale*& list, int& size) {
         cin >> action;
 
         if (action < 0 || action > 2) {
-            cout << ERROR_COLOR << "Введите коректное значение: " << RESET_COLOR << endl;
+            cout << ERROR_COLOR << "Введите корректное значение: " << RESET_COLOR << endl;
             // скрываем меню чтобы оно не отображалось пока пользователь не введет коректное значение
             isPrintMenu = false;
             continue;
