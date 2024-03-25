@@ -1,19 +1,25 @@
 #ifndef MAINMENU
 #define MAINMENU
-#include "headers/common/config.h"
-#include "headers/common/lists.h"
-#include "headers/common/functions/clearConsole.h"
-#include "headers/common/functions/printList.h"
-#include "headers/common/functions/setString.h"
-#include "headers/common/functions/sorting.h"
-#include "headers/common/functions/search.h"
-#include "headers/common/functions/getSearchIndex.h"
-#include "headers/common/functions/deleteElement.h"
+#include "config.h"
+#include "structs.h"
+#include "lists.h"
+#include "functions/clearConsole.h"
+#include "functions/printList.h"
+#include "functions/setString.h"
+#include "functions/sorting.h"
+#include "functions/search.h"
+#include "functions/getSearchIndex.h"
+#include "functions/addElement.h"
+#include "functions/deleteElement.h"
 #include "headers/employee/employeeMenu.h"
 #include "headers/car/carMenu.h"
 #include "headers/sale/saleMenu.h"
+#include "headers/fileOperations/writeToFile.h"
+#include "headers/fileOperations/readToFile.h"
+#include "headers/fileOperations/extensionValidation.h"
+#include "headers/fileOperations/pathValidation.h"
+#include "headers/fileOperations/fileMenu.h"
 #include "headers/reports/reportsMenu.h"
-
 
 
 void printMainMenu()
@@ -23,6 +29,8 @@ void printMainMenu()
     cout << "2) Добавление/редактирование/удаление - автомобиля" << endl;
     cout << "3) Добавление/удаление - продажи" << endl;
     cout << "4) Отчеты" << endl;
+    cout << "5) Сохранение данных в файле" << endl;
+    cout << "6) Загрузка данных из файла" << endl;
     cout << "0) Звершить работу" << endl;
 }
 
@@ -38,9 +46,9 @@ void mainMenu()
             printMainMenu();
 
         cin >> action;
-        if (action < 0 || action > 4)
+        if (action < 0 || action > 6)
         {
-            cout << ERROR_COLOR << "Введите коректное значение: " << RESET_COLOR << endl;
+            cout << ERROR_COLOR << "Введите корректное значение: " << RESET_COLOR << endl;
             // скрываем меню чтобы оно не отображалось пока пользователь не введет коректное значение
             isPrintMenu = false;
             continue;
@@ -65,6 +73,16 @@ void mainMenu()
             case 4:
                 clearConsole();
                 reportsMenu();
+                continue;
+            case 5:
+                clearConsole();
+                // передаем true что бы записать в файл
+                fileMenu(true);
+                continue;
+            case 6:
+                clearConsole();
+                // передаем false что бы загрузить с файла
+                fileMenu(false);
                 continue;
             case 0:
                 // завершение програмы
