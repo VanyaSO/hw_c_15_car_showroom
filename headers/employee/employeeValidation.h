@@ -45,7 +45,7 @@ bool validEmplEmail(char* value)
         i++;
     }
 
-    cout << ERROR_COLOR << "Некоректно введена почта!!!" << RESET_COLOR << endl;
+    cout << ERROR_COLOR << "Некорректно введена почта!!!" << RESET_COLOR << endl;
     return false;
 }
 ptrValidEpml ptrValidEpmlEmail = validEmplEmail;

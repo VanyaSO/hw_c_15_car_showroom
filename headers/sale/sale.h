@@ -83,7 +83,7 @@ Sale createSale()
 
 void printSale(Sale sale)
 {
-    cout << "Автомобиль: " << sale.carData.manufacturer << " " << sale.carData.model << endl << " " << sale.carData.vinCode << endl;
+    cout << "Автомобиль: " << sale.carData.manufacturer << " " << sale.carData.model << " " << sale.carData.vinCode << endl;
     cout << "Сотрудник: " << sale.empData.lastName << " " <<  sale.empData.firstName << " " << sale.empData.patronymic << endl;
     cout << "Цена продажи: " << sale.realSalePrice << endl;
     cout << "Дата: " << sale.data.day << "." << sale.data.month << "." << sale.data.year << endl;

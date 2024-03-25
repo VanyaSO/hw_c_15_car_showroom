@@ -1,6 +1,18 @@
 #ifndef CAR_H
 #define CAR_H
 
+void printCar(Car car)
+{
+    cout << "Производитель: " << car.carData.manufacturer << endl;
+    cout << "Модель: " << car.carData.model << endl;
+    cout << "Год выпуска: " << car.yearGraduation << endl;
+    cout << "Себестоимость: " << car.price << endl;
+    cout << "Потенциальная цена продажи: " << car.potentialSalePrice << endl;
+    cout << "VIN-код: " << car.carData.vinCode << endl;
+    cout << endl;
+}
+void (*ptrPrintCar)(Car) = printCar;
+
 Car createCar()
 {
     int numInt = 0;
@@ -37,15 +49,4 @@ Car createCar()
     return car;
 }
 
-void printCar(Car car)
-{
-    cout << "Производитель: " << car.carData.manufacturer << endl;
-    cout << "Модель: " << car.carData.model << endl;
-    cout << "Год выпуска: " << car.yearGraduation << endl;
-    cout << "Себестоимость: " << car.price << endl;
-    cout << "Потенциальная цена продажи: " << car.potentialSalePrice << endl;
-    cout << "VIN-код: " << car.carData.vinCode << endl;
-    cout << endl;
-}
-void (*ptrPrintCar)(Car) = printCar;
 #endif

@@ -42,7 +42,7 @@ void editCarMenu(Car& car)
         cin >> action;
         if (action < 0 || action > 6)
         {
-            cout << ERROR_COLOR << "Введите коректное значение: " << RESET_COLOR << endl;
+            cout << ERROR_COLOR << "Введите корректное значение: " << RESET_COLOR << endl;
             // скрываем меню чтобы оно не отображалось пока пользователь не введет коректное значение
             isPrintMenu = false;
             isUpdate = false;

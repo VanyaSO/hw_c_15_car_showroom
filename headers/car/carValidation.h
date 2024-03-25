@@ -8,7 +8,7 @@ bool validCarVinCode(char* value)
     // проверяем изначально длину строку на 5 символов
     if (strlen(value) != 5)
     {
-        cout << ERROR_COLOR << "Введите VIN-код коректно!" << RESET_COLOR << endl;
+        cout << ERROR_COLOR << "Введите VIN-код корректно!" << RESET_COLOR << endl;
         return false;
     }
 
