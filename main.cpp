@@ -1,29 +1,23 @@
 #include <iostream>
 using namespace std;
-#define SIZE_STR 50
+#define SIZE_STR 40
 #include "headers/common/staticArrays.h"
-#include "headers/common/functions/addElement.h"
-#include "headers/common/functions/getMaxValue.h"
 #include "headers/common/mainMenu.h"
 #include "headers/common/lists.h"
+#include "headers/sale/getMaxNumberSale.h"
 
 
 int main()
 {
     setlocale(LC_ALL,"Russian");
 
-    //region копирование с статических в динамический массив
-    for (int i = 0; i < sizeStaticArr; ++i) {
-        addElement(listEmployees, sizeListEmployees, staticArrEpl[i]);
-    }
-    for (int i = 0; i < sizeStaticArr; ++i) {
-        addElement(listCars, sizeListCars, staticArrCar[i]);
-    }
-    for (int i = 0; i < sizeStaticArr; ++i) {
-        addElement(listSales, sizeListSales, staticArrSales[i]);
-        // получаем максимальный номер заказа
-        saleIdMax = getMaxValue(saleIdMax, staticArrSales[i].id);
-    }
+    // загружаем списки при запуске програмы
+    readToFile(listEmployees, sizeListEmployees, "../files/empls.dat");
+    readToFile(listCars, sizeListCars, "../files/cars.dat");
+    readToFile(listSales, sizeListSales, "../files/sales.dat");
+
+    // указываем максимальный номер продали после загрузки файла
+    saleIdMax = getMaxNumberSale(listSales, sizeListSales);
 
     cout << "-----Добро пожаловать в систему автомобильного салона-----" << endl;
     mainMenu();
