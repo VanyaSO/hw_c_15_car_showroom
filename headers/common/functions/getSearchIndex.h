@@ -1,5 +1,5 @@
-//#ifndef GETSEARCHINDEX
-//#define GETSEARCHINDEX
+#ifndef GETSEARCHINDEX
+#define GETSEARCHINDEX
 
 template<typename T>
 int getSearchIndex(T*& list, int size,
@@ -19,4 +19,4 @@ int getSearchIndex(T*& list, int size,
 
     return searchIndex;
 };
-//#endif
+#endif

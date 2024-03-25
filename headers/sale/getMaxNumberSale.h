@@ -15,7 +15,6 @@ int getMaxNumberSale(Sale* list, int size)
             max = list[i].id;
         }
     }
-    cout << max << endl;
     return max;
 }
 #endif
