@@ -42,9 +42,9 @@ struct Sale
 {
     EmployeeData empData;
     CarData carData;
-    Date data;
+    Date date;
     double realSalePrice;
-    double margin;
+    double profit;
     int id;
 };
 

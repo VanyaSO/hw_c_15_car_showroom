@@ -1,6 +1,6 @@
 #ifndef WRITECARLISTTOTXTFILE
 #define WRITECARLISTTOTXTFILE
-void writeCarListToTxtFile(Car*& list, int& sizeList, const char* path)
+void writeCarListToTxtFile(Car* list, int sizeList, const char* path)
 {
     FILE *file;
 

@@ -1,8 +1,20 @@
-//
-// Created by Ivan Ushachov on 26.03.2024.
-//
+#ifndef GETSALESBYDATE
+#define GETSALESBYDATE
 
-#ifndef HW_C_15_CAR_SHOWROOM_GETSALESBYDATE_H
-#define HW_C_15_CAR_SHOWROOM_GETSALESBYDATE_H
+// (массив продаж, размер массива, новый массив, размер нового массива, дата)
+void getSalesByDate(Sale* list, int sizeList, Sale*& newList, int& sizeNewList, Date date)
+{
+    if (sizeList == 0)
+        return;
+    deletePointer(newList);
 
-#endif //HW_C_15_CAR_SHOWROOM_GETSALESBYDATE_H
+    for (int i = 0; i < sizeList; ++i)
+    {
+        Sale sale = list[i];
+        if (sale.date.day == date.day && sale.date.month == date.month && sale.date.year == date.year)
+        {
+            addElement(newList, sizeNewList, sale);
+        }
+    }
+}
+#endif

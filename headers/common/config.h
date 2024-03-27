@@ -7,4 +7,6 @@ const char* RESET_COLOR = "\033[0m";
 
 // максимальный номер продажи
 int saleIdMax = 0;
+
+double totalProfitForPeriod = 0;
 #endif

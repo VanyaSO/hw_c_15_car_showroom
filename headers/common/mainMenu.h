@@ -11,6 +11,7 @@
 #include "functions/getSearchIndex.h"
 #include "functions/addElement.h"
 #include "functions/deleteElement.h"
+#include "functions/deletePointer.h"
 #include "../employee/employeeMenu.h"
 #include "../car/carMenu.h"
 #include "../sale/saleMenu.h"
@@ -29,7 +30,7 @@ void printMainMenu()
     cout << "2) Добавление/редактирование/удаление - автомобиля" << endl;
     cout << "3) Добавление/удаление - продажи" << endl;
     cout << "4) Отчеты" << endl;
-    cout << "5) Сохранение данных в файле" << endl;
+    cout << "5) Сохранение данных в файл" << endl;
     cout << "6) Загрузка данных из файла" << endl;
     cout << "0) Звершить работу" << endl;
 }

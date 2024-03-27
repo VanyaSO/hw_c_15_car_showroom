@@ -1,6 +1,6 @@
 #ifndef WRITEEMPLOYEELISTTOTXTFILE
 #define WRITEEMPLOYEELISTTOTXTFILE
-void writeEmployeeListToTxtFile(Employee*& list, int& sizeList, const char* path)
+void writeEmployeeListToTxtFile(Employee* list, int sizeList, const char* path)
 {
     FILE *file;
 

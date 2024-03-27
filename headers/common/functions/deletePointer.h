@@ -1,8 +1,9 @@
-//
-// Created by Ivan Ushachov on 27.03.2024.
-//
-
-#ifndef HW_C_15_CAR_SHOWROOM_DELETEPOINTER_H
-#define HW_C_15_CAR_SHOWROOM_DELETEPOINTER_H
-
-#endif //HW_C_15_CAR_SHOWROOM_DELETEPOINTER_H
+#ifndef DELETEPOINTER
+#define DELETEPOINTER
+template<typename T>
+void deletePointer(T*& arr)
+{
+    if  (arr != nullptr)
+        delete[] arr;
+}
+#endif

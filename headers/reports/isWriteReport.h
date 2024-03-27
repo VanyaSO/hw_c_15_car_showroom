@@ -1,12 +1,17 @@
-#ifndef PRINTANDWRITEREPORT
-#define PRINTANDWRITEREPORT
-bool printAndWriteReport()
+#ifndef ISDWRITEREPORT
+#define ISDWRITEREPORT
+
+template<typename T>
+// (* на массив, размер маиссива, * как записывать)
+bool isWriteReport(T* list, int size = 0, void ptrWrite(T*, int, const char*) = nullptr)
 {
     bool isWrite = false;
     const int N = 30;
     char PATH[N];
 
-    printList(listSalesByDate, sizeListSalesByDate, ptrPrintSale);
+    const int sizeExtension = 4;
+    const char fileExtension[sizeExtension+1] = ".txt";
+
     // уточняет хочет ли пользователь записать это в текстовый файл
     cout << "Записать данные в текстовый файл ?" << endl;
     cout << "1-да / 0-нет" << endl;
@@ -21,11 +26,11 @@ bool printAndWriteReport()
         // если пусть правильный записываем туда данные
         if (pathValidation(PATH, fileExtension, sizeExtension))
         {
-            // записываем список за конкретную дату в файл
-            writeSaleListToTxtFile(listSalesByDate, sizeListSalesByDate, PATH);
-//            cout << GREEN_COLOR << "Список продаж за "
-//                 << date.day << "." << date.month << "." << date.year
-//                 << "сохранен в " << PATH << RESET_COLOR << endl;
+            if (ptrWrite != nullptr)
+            {
+                // записываем список за конкретную дату в файл
+                ptrWrite(list, size, PATH);
+            }
             return true;
         }
         else
@@ -34,4 +39,4 @@ bool printAndWriteReport()
     else
         return false;
 }
-#endif //PRINTANDWRITEREPORT
+#endif

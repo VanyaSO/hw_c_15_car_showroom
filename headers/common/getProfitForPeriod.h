@@ -1,8 +1,17 @@
-//
-// Created by Ivan Ushachov on 27.03.2024.
-//
+#ifndef GETPROFITFORPERIOD
+#define GETPROFITFORPERIOD
+double getProfitForPeriod(Sale* list, int sizeList)
+{
+    if (sizeList == 0)
+        return 0;
 
-#ifndef HW_C_15_CAR_SHOWROOM_GETPROFITFORPERIOD_H
-#define HW_C_15_CAR_SHOWROOM_GETPROFITFORPERIOD_H
+    double profit = 0;
+    for (int i = 0; i < sizeList; ++i)
+    {
+        Sale sale = list[i];
+        profit += sale.profit;
+    }
 
-#endif //HW_C_15_CAR_SHOWROOM_GETPROFITFORPERIOD_H
+    return profit;
+}
+#endif

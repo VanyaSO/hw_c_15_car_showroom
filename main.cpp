@@ -22,7 +22,7 @@ int main()
     cout << "-----Добро пожаловать в систему автомобильного салона-----" << endl;
     mainMenu();
 
-    delete[] listEmployees;
-    delete[] listCars;
-    delete[] listSales;
+    deletePointer(listEmployees);
+    deletePointer(listCars);
+    deletePointer(listSales);
 }

@@ -1,6 +1,5 @@
 #ifndef SALE
 #define SALE
-#include "../common/lists.h"
 
 Sale createSale()
 {
@@ -66,14 +65,14 @@ Sale createSale()
 
 
     cout << "Дата продажи (12.11.2020)через точку" << endl;
-    cin >> sale.data.day >> dot >> sale.data.month >> dot >> sale.data.year;
+    cin >> sale.date.day >> dot >> sale.date.month >> dot >> sale.date.year;
     cout << endl;
 
     cout << "Цена продажи: " << endl;
     cin >> sale.realSalePrice;
 
-    // считаем маржу
-    sale.margin = sale.realSalePrice - car.price;
+    // считаем профит
+    sale.profit = sale.realSalePrice - car.price;
     // указываем номер продажи
     sale.id = saleIdMax+1;
 
@@ -86,7 +85,7 @@ void printSale(Sale sale)
     cout << "Автомобиль: " << sale.carData.manufacturer << " " << sale.carData.model << " " << sale.carData.vinCode << endl;
     cout << "Сотрудник: " << sale.empData.lastName << " " <<  sale.empData.firstName << " " << sale.empData.patronymic << endl;
     cout << "Цена продажи: " << sale.realSalePrice << endl;
-    cout << "Дата: " << sale.data.day << "." << sale.data.month << "." << sale.data.year << endl;
+    cout << "Дата: " << sale.date.day << "." << sale.date.month << "." << sale.date.year << endl;
     cout << "№:" << sale.id << endl;
     cout << endl;
 }
