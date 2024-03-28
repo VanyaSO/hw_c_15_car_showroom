@@ -1,12 +1,12 @@
 #ifndef EMPLOYEEMENU
 #define EMPLOYEEMENU
 #include <cstdlib>
-#include "headers/employee/employeeValidation.h"
-#include "headers/employee/setEmplInfo.h"
-#include "headers/employee/employee.h"
-#include "headers/employee/employeeEditMenu.h"
-#include "headers/employee/employeeSorting.h"
-#include "headers/employee/employeeSearch.h"
+#include "employeeValidation.h"
+#include "setEmplInfo.h"
+#include "employee.h"
+#include "employeeEditMenu.h"
+#include "employeeSorting.h"
+#include "employeeSearch.h"
 
 
 

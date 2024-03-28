@@ -1,11 +1,11 @@
 #ifndef CARMENU
 #define CARMENU
-#include "headers/car/setCarInfo.h"
-#include "headers/car/carValidation.h"
-#include "headers/car/carSorting.h"
-#include "headers/car/carSearch.h"
-#include "headers/car/car.h"
-#include "headers/car/carEditMenu.h"
+#include "setCarInfo.h"
+#include "carValidation.h"
+#include "carSorting.h"
+#include "carSearch.h"
+#include "car.h"
+#include "carEditMenu.h"
 
 void printCarMenu() {
     cout << "Меню для работы с даными автомобилей"  << endl;
