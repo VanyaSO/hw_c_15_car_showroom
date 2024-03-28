@@ -24,4 +24,5 @@ int main()
     deletePointer(listEmployees);
     deletePointer(listCars);
     deletePointer(listSales);
+    deletePointer(listSalesByData);
 }

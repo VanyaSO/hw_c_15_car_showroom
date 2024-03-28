@@ -8,4 +8,7 @@ Car* listCars = nullptr;
 
 int sizeListSales= 0;
 Sale* listSales = nullptr;
+
+int sizeListSalesByData = 0;
+Sale* listSalesByData = nullptr;
 #endif

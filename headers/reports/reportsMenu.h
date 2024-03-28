@@ -43,9 +43,6 @@ void reportsMenu()
     Date date = {};
     Date dateTwo = {};
 
-    int sizeListSalesByData = 0;
-    Sale* listSalesByData = nullptr;
-
     while(true)
     {
 
