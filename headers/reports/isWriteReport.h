@@ -1,17 +1,10 @@
-#ifndef ISDWRITEREPORT
-#define ISDWRITEREPORT
-
-template<typename T>
+#ifndef ISWRITEREPORT
+#define ISWRITEREPORT
+#include <cstring>
 // (* на массив, размер маиссива, * как записывать)
-bool isWriteReport(T* list, int size = 0, void ptrWrite(T*, int, const char*) = nullptr)
+bool isWriteReport(char* path, const char* extension, int sizeExtension)
 {
     bool isWrite = false;
-    const int N = 30;
-    char PATH[N];
-
-    const int sizeExtension = 4;
-    const char fileExtension[sizeExtension+1] = ".txt";
-
     // уточняет хочет ли пользователь записать это в текстовый файл
     cout << "Записать данные в текстовый файл ?" << endl;
     cout << "1-да / 0-нет" << endl;
@@ -22,15 +15,12 @@ bool isWriteReport(T* list, int size = 0, void ptrWrite(T*, int, const char*) = 
         clearConsole();
         // если да запрашиваем путь и проверяем его
         cout << "Введите путь к файлу(name.txt)" << endl;
-        cin >> PATH;
+        std::cin.ignore(INT_MAX, '\n');
+        std::cin.getline(path, SIZE_STR - 1);
+
         // если пусть правильный записываем туда данные
-        if (pathValidation(PATH, fileExtension, sizeExtension))
+        if (pathValidation(path, extension, sizeExtension))
         {
-            if (ptrWrite != nullptr)
-            {
-                // записываем список за конкретную дату в файл
-                ptrWrite(list, size, PATH);
-            }
             return true;
         }
         else
