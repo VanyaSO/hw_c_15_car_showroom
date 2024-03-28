@@ -6,7 +6,6 @@ using namespace std;
 #include "headers/common/lists.h"
 #include "headers/sale/getMaxNumberSale.h"
 
-
 int main()
 {
     setlocale(LC_ALL,"Russian");
