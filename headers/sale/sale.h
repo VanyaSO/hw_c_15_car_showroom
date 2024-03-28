@@ -75,6 +75,7 @@ Sale createSale()
     sale.profit = sale.realSalePrice - car.price;
     // указываем номер продажи
     sale.id = saleIdMax+1;
+    saleIdMax+=1;
 
 
     return sale;
