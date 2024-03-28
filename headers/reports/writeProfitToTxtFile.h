@@ -1,12 +1,13 @@
 #ifndef WRITEPROFITETOTXTFILE
 #define WRITEPROFITETOTXTFILE
-void writeProfitToTxtFile(int profit, const char* path, Date dateStart, Date dateEnd)
+
+void writeProfitToTxtFile(const char* path, Date dateStart, Date dateEnd)
 {
     FILE *file;
 
     if ((file = fopen(path, "wt")) != NULL)
     {
-            fprintf(file, "Прибыль за период с %s.%s.%s по %s.%s.%s составляет: \n", sale.carData.manufacturer, sale.carData.model, sale.carData.vinCode);
+        fprintf(file, "Прибыль за период с %d.%d.%d по %d.%d.%d составляет: %f.2 \n", dateStart.day, dateStart.month, dateStart.year, dateEnd.day, dateEnd.month, dateEnd.year, totalProfitForPeriod);
         fclose(file);
     }
 }
