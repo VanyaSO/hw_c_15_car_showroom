@@ -2,11 +2,13 @@
 #define REPORTSMENU
 #include "../employee/writeEmployeeListToTxtFile.h"
 #include "../car/writeCarListToTxtFile.h"
-#include "../sale/writeSaleListToTxtFile.h"
-#include "../sale/getSalesByDate.h"
+#include "writeSaleListToTxtFile.h"
+#include "getSalesByDate.h"
 #include "../common/functions/isDateInRange.h"
-#include "../sale/getSalesByPeriod.h"
-#include "../common/getProfitForPeriod.h"
+#include "getSalesByPeriod.h"
+#include "getBestSellingCar.h"
+#include "getBestSellingEmpl.h"
+#include "getProfitForPeriod.h"
 #include "writeProfitToTxtFile.h"
 #include "isWriteReport.h"
 
@@ -17,15 +19,18 @@ void printReportsMenu() {
     cout << "2) Информация про все автомобили" << endl;
     cout << "3) Информация про все продажи" << endl;
     cout << "4) Все продажи за определенную дату" << endl;
-    cout << "5) Все продажи за определенный период времени ----- " << endl;
-    cout << "6) Все продажи определенного сотрудника ----- " << endl;
+    cout << "5) Все продажи за определенный период времени" << endl;
+    cout << "6) Название наиболее продаваемого автомобиля за указанный период времени. " << endl;
+    cout << "6) Информация о самом успешном продавце за указанный период времени. " << endl;
     cout << "0) Вернуться в главное меню" << endl;
 }
 
 void reportsMenu()
 {
     int action = 0;
+    int indexListItem = 0;
     bool isPrintMenu = true;
+
     char dot = '.';
     char path[SIZE_STR];
 
@@ -185,11 +190,65 @@ void reportsMenu()
                     cout << ERROR_COLOR << "Cписок пуст" << RESET_COLOR << endl;
                 continue;
             case 6:
+                // Назва автомобіля, що найбільше продається за вказаний період часу.
+                cout << "Введите даты чтобы получить самый подаваемый автомобиль за этот период времени (24.12.2023): " << endl;
+                // инициализируем структуру date
+                cout << "C: " << endl;
+                cin >> date.day >> dot >> date.month >> dot >> date.year;
+
+                cout << "По: " << endl;
+                cin >> dateTwo.day >> dot >> dateTwo.month >> dot >> dateTwo.year;
+
+                // получаем список ьпродажей за период
+                getSalesByPeriod(listSales, sizeListSales, listSalesByData, sizeListSalesByData, date, dateTwo);
+                // получаем индекс самой продаваемой авто в полном списке автомобилей
+                indexListItem = getBestSellingCar(listSalesByData, sizeListSalesByData);
+
+                if (indexListItem < 0)
+                {
+                    clearConsole();
+                    cout << ERROR_COLOR << "Нет автомобилей с наилучшими продажами" << RESET_COLOR << endl;
+                    continue;
+                }
+
+                clearConsole();
+                cout << GREEN_COLOR << "Самый продаваемый автомобиль за период с "
+                << date.day << "." << date.month << "." << date.year
+                << " по " << dateTwo.day << "." << dateTwo.month << "." << dateTwo.year
+                << " " << listCars[indexListItem].carData.manufacturer << " " << listCars[indexListItem].carData.model << RESET_COLOR << endl;
                 continue;
             case 7:
+                // Інформація про найуспішнішого продавця за вказаний період часу.
+                cout << "Введите даты чтобы получить продавца с самым большим количество продаж за этот период времени (24.12.2023): " << endl;
+                // инициализируем структуру date
+                cout << "C: " << endl;
+                cin >> date.day >> dot >> date.month >> dot >> date.year;
+
+                cout << "По: " << endl;
+                cin >> dateTwo.day >> dot >> dateTwo.month >> dot >> dateTwo.year;
+
+                // получаем список продажей за период
+                getSalesByPeriod(listSales, sizeListSales, listSalesByData, sizeListSalesByData, date, dateTwo);
+                // получаем индекс самой продаваемой авто в полном списке автомобилей
+                indexListItem = getBestSellingEmpl(listSalesByData, sizeListSalesByData);
+
+                if (indexListItem < 0)
+                {
+                    clearConsole();
+                    cout << ERROR_COLOR << "Нет успешного продавца за указанный период времени" << RESET_COLOR << endl;
+                    continue;
+                }
+
+                clearConsole();
+                cout << GREEN_COLOR << "Самый продаваемый автомобиль за период с "
+                     << date.day << "." << date.month << "." << date.year
+                     << " по " << dateTwo.day << "." << dateTwo.month << "." << dateTwo.year << RESET_COLOR << endl;
+                // принтим информацию о продавце
+                ptrPrintEmployee(listEmployees[indexListItem]);
                 continue;
             case 8:
-                cout << "Введите даты чтобы получить прибыль за определенный период времени (24.12.2023): " << endl;
+                cout << endl;
+                cout << "Введите даты чтобы получить прибыль за этот период времени (24.12.2023): " << endl;
                 // инициализируем структуры date
                 cout << "C: " << endl;
                 cin >> date.day >> dot >> date.month >> dot >> date.year;
