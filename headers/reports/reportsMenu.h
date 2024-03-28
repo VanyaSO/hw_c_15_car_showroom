@@ -9,7 +9,9 @@
 #include "getBestSellingCar.h"
 #include "getBestSellingEmpl.h"
 #include "getProfitForPeriod.h"
+#include "writeBestSellCarToTxtFile.h"
 #include "writeProfitToTxtFile.h"
+#include "writeBestSellEmplToTxtFile.h"
 #include "isWriteReport.h"
 
 
@@ -21,7 +23,8 @@ void printReportsMenu() {
     cout << "4) Все продажи за определенную дату" << endl;
     cout << "5) Все продажи за определенный период времени" << endl;
     cout << "6) Название наиболее продаваемого автомобиля за указанный период времени. " << endl;
-    cout << "6) Информация о самом успешном продавце за указанный период времени. " << endl;
+    cout << "7) Информация о самом успешном продавце за указанный период времени. " << endl;
+    cout << "8) Суммарная прибыль за указанный период времени. " << endl;
     cout << "0) Вернуться в главное меню" << endl;
 }
 
@@ -216,6 +219,13 @@ void reportsMenu()
                 << date.day << "." << date.month << "." << date.year
                 << " по " << dateTwo.day << "." << dateTwo.month << "." << dateTwo.year
                 << " " << listCars[indexListItem].carData.manufacturer << " " << listCars[indexListItem].carData.model << RESET_COLOR << endl;
+
+                if (isWriteReport(path, fileExtension, sizeExtension))
+                {
+                    writeBestSellCarToTxtFile(path, date, dateTwo, listCars[indexListItem]);
+                    clearConsole();
+                    cout << GREEN_COLOR << "Данные о самом продаваемом автомобиле сохранены" << RESET_COLOR << endl;
+                }
                 continue;
             case 7:
                 // Інформація про найуспішнішого продавця за вказаний період часу.
@@ -240,11 +250,18 @@ void reportsMenu()
                 }
 
                 clearConsole();
-                cout << GREEN_COLOR << "Самый продаваемый автомобиль за период с "
+                cout << GREEN_COLOR << "Сотрудник с самым большим количеством продаж за период с "
                      << date.day << "." << date.month << "." << date.year
                      << " по " << dateTwo.day << "." << dateTwo.month << "." << dateTwo.year << RESET_COLOR << endl;
                 // принтим информацию о продавце
                 ptrPrintEmployee(listEmployees[indexListItem]);
+
+                if (isWriteReport(path, fileExtension, sizeExtension))
+                {
+                    writeBestSellEmplToTxtFile(path, date, dateTwo, listEmployees[indexListItem]);
+                    clearConsole();
+                    cout << GREEN_COLOR << "Данные о самом успешном продавце сохранены" << RESET_COLOR << endl;
+                }
                 continue;
             case 8:
                 cout << endl;
