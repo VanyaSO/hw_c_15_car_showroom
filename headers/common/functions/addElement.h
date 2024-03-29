@@ -10,7 +10,10 @@ void addElement(T*& list, int& size, T el)
     }
     newList[size] = el;
 
-    delete[] list;
+    if (list != nullptr)
+    {
+        delete[] list;
+    }
     size+=1;
     list = newList;
 }
