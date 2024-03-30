@@ -14,7 +14,6 @@ int getBestSellingEmpl(Sale* list, int sizeList)
             if (strcmp(list[i].empData.lastName, list[j].empData.lastName) == 0)
                 currentCount++;
         }
-        cout << list[i].empData.lastName << " " << currentCount << endl;
 
         if (currentCount > maxCount)
         {
